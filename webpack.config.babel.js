@@ -24,26 +24,31 @@ module.exports = {
 				exclude: /node_modules/
 			},
 			{
-				test: /\.css$/,
-				loader: 'style-loader!css-loader'
+				test: /\.less$/,
+				loader: 'file-loader?name=[name].css!less-loader'
 			},
 			{
 				test: /\.pug$/,
 				loader: 'pug-loader'
+			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader'
 			}
 		]
 	},
 
 	resolve: {
 		alias: {
-			'vue$': 'vue/dist/vue.js',
-			'skeleton$': 'skeleton-css/css/skeleton.css'
+			'skeleton$': 'skeleton-less/less/skeleton.less',
+			'vue$': 'vue/dist/vue.js'
 		}
 	},
 
 	output: {
 		path: dir.dist(),
-		filename: 'app.js'
+		filename: 'app.js',
+		publicPath: '/assets/'
 	},
 
 	plugins: [

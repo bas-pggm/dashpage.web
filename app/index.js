@@ -1,4 +1,6 @@
+// import fs from 'fs';
 const fs = require('fs');
+// import server from './core/server';
 const server = require('./core/server');
 
 fs.readFile('./app/app.config.json', ( err, data ) => {
