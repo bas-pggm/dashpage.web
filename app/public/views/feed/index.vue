@@ -2,32 +2,22 @@
 	layout
 		.row
 			.columns.seven
-				article(v-for="post in posts")
-					h3 {{post.Topic}}
-					p {{post.Body}}
+				postlist
 			.columns.two strootje
 			.columns.three
 				taglist
 </template>
 
 <script>
-	import feedlayout from './../../layouts/feed.vue';
-	import taglist from './../../components/taglist.vue';
+	import layout from './../../layouts/feed.vue';
+	import taglist from './../../components/tags/list.vue';
+	import postlist from './../../components/posts/list.vue';
 
 	export default {
 		components: {
-			'layout': feedlayout,
-			'taglist': taglist
-		},
-
-		data: () => {return{
-			posts: []
-		}},
-
-		mounted: function () {
-			this.$http.get('http://kattegat:3000/posts/').then((resp) => {
-				this.posts = resp.body;
-			});
+			'layout': layout,
+			'taglist': taglist,
+			'postlist': postlist
 		}
 	};
 </script>

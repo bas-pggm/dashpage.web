@@ -1,16 +1,14 @@
 <template lang="pug">
-	div
-		code(v-for="tag in tags") {{tag.Name}}
+	div.tags
+		item(v-for="tag in tags", :tag="tag")
 </template>
 
 <script>
-	import navdevider from './navdevider.vue';
-	import navlink from './navlink.vue';
+	import item from './item.vue';
 
 	export default {
 		components: {
-			'navdevider': navdevider,
-			'navlink': navlink
+			'item': item,
 		},
 
 		data: () => {return{

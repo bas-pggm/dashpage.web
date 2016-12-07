@@ -18,11 +18,11 @@
 </template>
 
 <script>
-	import feedlayout from './../../layouts/feed.vue';
+	import layout from './../../layouts/feed.vue';
 
 	export default {
 		components: {
-			'layout': feedlayout
+			'layout': layout
 		}
 	};
 </script>
