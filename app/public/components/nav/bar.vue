@@ -1,18 +1,21 @@
 <template lang="pug">
 	nav.row
-		item(route="/feed") #feed
+		item(route="/feed") feed
 		devider strootje
-		item(route="/about") #about
+		item(route="/about") about
 </template>
 
 <script>
 	import devider from './devider.vue';
-	import link from './link.vue';
+	import item from './item.vue';
 
 	export default {
 		components: {
 			'devider': devider,
-			'item': link
+			'item': item
 		}
 	};
 </script>
+
+<style lang="less">
+</style>

@@ -13,3 +13,10 @@
 		}
 	};
 </script>
+
+<style lang="less" scoped>
+	.container {
+		// background-color: #454545;
+		background-color: #ccc;
+	}
+</style>

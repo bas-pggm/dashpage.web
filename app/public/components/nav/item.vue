@@ -13,3 +13,15 @@
 		}
 	};
 </script>
+
+<style lang="less">
+	@import "~skeleton-less/less/skeleton";
+
+	.nav-item {
+		padding: 10px 2px;
+		text-align: center;
+	}
+
+	.active {
+	}
+</style>

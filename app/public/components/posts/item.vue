@@ -14,3 +14,13 @@
 		}
 	};
 </script>
+
+<style lang="less">
+	@import "./../../stylesheets/fonts.less";
+
+	.post {
+		h3 {
+			font-family: @comfortaa;
+		}
+	}
+</style>
