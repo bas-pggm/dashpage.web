@@ -1,14 +1,13 @@
 <template lang="pug">
 	layout
-		p error: 404
 </template>
 
 <script>
-	import feedlayout from './../../layouts/feed.vue';
+	import layout from './../../layouts/river/index.vue';
 
 	export default {
 		components: {
-			'layout': feedlayout
+			'layout': layout
 		}
 	};
 </script>

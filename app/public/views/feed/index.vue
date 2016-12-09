@@ -1,15 +1,11 @@
 <template lang="pug">
-	layout
-		.row
-			.columns.seven
-				postlist
-			.columns.two strootje
-			.columns.three
-				taglist
+	layout(layout="left")
+		postlist(slot="maincontent")
+		taglist(slot="sidecontent")
 </template>
 
 <script>
-	import layout from './../../layouts/feed.vue';
+	import layout from './../../layouts/river/index.vue';
 	import taglist from './../../components/tags/list.vue';
 	import postlist from './../../components/posts/list.vue';
 
