@@ -2,13 +2,13 @@
 	.wrapper
 		lheader
 		.container
-			div(v-if="isLeftLayout").row
+			div(v-if="isLeftSide").row
 				.columns.seven
 					slot(name="maincontent")
 				.columns.two strootje
 				.columns.three
 					slot(name="sidecontent")
-			div(v-if="isRightLayout").row
+			div(v-if="isRightSide").row
 				.columns.three
 					slot(name="sidecontent")
 				.columns.two strootje
@@ -28,7 +28,7 @@
 		},
 
 		props: {
-			layout: {
+			side: {
 				type: String,
 				default: 'left',
 				validator: ( value ) => { return value === 'left' || value === 'right' }
@@ -36,12 +36,12 @@
 		},
 
 		computed: {
-			isLeftLayout() {
-				return this.layout === 'left';
+			isLeftSide() {
+				return this.side === 'left';
 			},
 
-			isRightLayout() {
-				return this.layout === 'right';
+			isRightSide() {
+				return this.side === 'right';
 			}
 		}
 	};

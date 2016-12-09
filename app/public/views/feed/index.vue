@@ -1,5 +1,5 @@
 <template lang="pug">
-	layout(layout="left")
+	layout(side="left")
 		postlist(slot="maincontent")
 		taglist(slot="sidecontent")
 </template>

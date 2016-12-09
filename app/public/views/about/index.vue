@@ -1,5 +1,5 @@
 <template lang="pug">
-	layout(layout="right")
+	layout(side="right")
 		div(slot="maincontent")
 			p.
 				I'm a very critical person and even more so as a coder.

@@ -1,5 +1,6 @@
 <template lang="pug">
-	layout
+	layout(side="left")
+		div(slot="maincontent") 404 - page not found
 </template>
 
 <script>
