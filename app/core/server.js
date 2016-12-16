@@ -1,7 +1,7 @@
 // import express from 'express';
 const express = require('express');
 // import fs from 'fs';
-const fs = require('fs');
+const read = require('fs').readFile;
 // import { join } from 'path';
 const join = require('path').join;
 // import serve from 'serve-static';
@@ -14,7 +14,7 @@ module.exports = class Server {
 		this._server = new express;
 		this._server.use('/assets', serve(join(__dirname, '..', '..', 'dist')));
 		this._server.use('*', (req, res, next) => {
-			fs.readFile(join(__dirname, '..', '..', 'dist', 'index.html'), (err, data) => {
+			read(join(__dirname, '..', '..', 'dist', 'index.html'), (err, data) => {
 				if (err) throw err;
 				res.end(data);
 			});

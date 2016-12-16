@@ -1,8 +1,9 @@
-import { join } from 'path';
+import { join, resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const dir = {
-	app: ( ...paths ) => { return join(__dirname, 'app', ...paths); },
+	app: ( ...paths ) => { return join(__dirname, 'app', 'public', ...paths); },
 	dist: ( ...paths ) => { return join(__dirname, 'dist', ...paths); }
 };
 
@@ -13,7 +14,7 @@ const dir = {
 
 module.exports = {
 	entry: {
-		app: [ dir.app('public', 'scripts', 'app.js') ]
+		app: [ dir.app('scripts', 'app.js') ]
 	},
 
 	module: {
@@ -38,9 +39,17 @@ module.exports = {
 		]
 	},
 
+	vue: {
+		loaders: {
+			less: ExtractTextPlugin.extract("css-loader!less-loader")
+		}
+	},
+
 	resolve: {
+		root: resolve(dir.app('comps')),
+		extensions: [ '', '.js', '.vue' ],
 		alias: {
-			'skeleton$': 'skeleton-less/less/skeleton.less',
+			// 'skeleton$': 'skeleton-less/less/skeleton.less',
 			'vue$': 'vue/dist/vue.js'
 		}
 	},
@@ -54,9 +63,10 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			inject: false,
-			title: 'dashpage.web',
+			title: 'bear.and.salmon',
 			filename: 'index.html',
-			template: dir.app('public', 'views', 'index.pug')
-		})
+			template: dir.app('views', 'app.pug')
+		}),
+		new ExtractTextPlugin("components.css")
 	]
 };

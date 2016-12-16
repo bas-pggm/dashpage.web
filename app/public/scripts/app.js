@@ -4,9 +4,9 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
 //- pages
-import feed from './../views/feed/index.vue';
-import about from './../views/about/index.vue';
-import e404 from './../views/errors/404.vue';
+import feed from 'pages/feed';
+import about from 'pages/about';
+import e404 from 'pages/errors/404';
 
 new Vue({
 	el: '#app',
@@ -18,8 +18,8 @@ new Vue({
 
 	created() {
 		page('/', '/feed');
-		page('/feed', () => { this.page = feed });
-		page('/about', () => { this.page = about });
+		page('/feed', () => { this.page = feed; });
+		page('/about', () => { this.page = about; });
 		page('*', () => { this.page = e404; });
 		page();
 	},
