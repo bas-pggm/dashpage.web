@@ -1,16 +1,13 @@
 import { join, resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import ComponentResolverPlugin from './app/core/component-resolver-plugin.js'
 
 const dir = {
 	app: ( ...paths ) => { return join(__dirname, 'app', 'public', ...paths); },
+	core: ( ...paths ) => { return join(__dirname, 'app', 'core', ...paths); },
 	dist: ( ...paths ) => { return join(__dirname, 'dist', ...paths); }
 };
-
-
-// entry: {
-// 	app: [ 'babel-polyfill', dir.app('public', 'scripts', 'app.js') ]
-// },
 
 module.exports = {
 	entry: {
@@ -34,7 +31,7 @@ module.exports = {
 			},
 			{
 				test: /\.vue$/,
-				loader: 'vue-loader'
+				loader: 'load'
 			}
 		]
 	},
@@ -49,8 +46,13 @@ module.exports = {
 		root: resolve(dir.app('comps')),
 		extensions: [ '', '.js', '.vue' ],
 		alias: {
-			// 'skeleton$': 'skeleton-less/less/skeleton.less',
 			'vue$': 'vue/dist/vue.js'
+		}
+	},
+
+	resolveLoader: {
+		alias: {
+			load: require.resolve(dir.core('loader.js'))
 		}
 	},
 
@@ -67,6 +69,11 @@ module.exports = {
 			filename: 'index.html',
 			template: dir.app('views', 'app.pug')
 		}),
-		new ExtractTextPlugin("components.css")
+		new ExtractTextPlugin("components.css"),
+		new ComponentResolverPlugin({
+			views: { dir: dir.app('views'), ext: '.pug' },
+			scripts: { dir: dir.app('scripts'), ext: '.js' },
+			styles: { dir: dir.app('styles'), ext: '.less' }
+		})
 	]
 };

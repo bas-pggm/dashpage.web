@@ -1,4 +1,4 @@
-import navitem from 'layouts/river/nav/item';
+import navitem from 'layouts/river/nav/item.vue';
 
 export default {
 	components: {

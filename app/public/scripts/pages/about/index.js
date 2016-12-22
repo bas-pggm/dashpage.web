@@ -1,4 +1,4 @@
-import layout from 'layouts/river';
+import layout from 'layouts/river.vue';
 
 export default {
 	components: {

@@ -1,4 +1,4 @@
-import item from 'elems/posts/item';
+import item from 'elems/posts/item.vue';
 
 export default {
 	components: {

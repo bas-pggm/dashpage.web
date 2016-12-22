@@ -1,4 +1,4 @@
-import item from 'elems/tags/item';
+import item from 'elems/tags/item.vue';
 
 export default {
 	components: {
